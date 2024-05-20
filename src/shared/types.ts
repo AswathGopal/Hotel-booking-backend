@@ -7,6 +7,7 @@ export type UserType={
 }
 
 export type HotelType ={
+    bookings: any;
     _id:string;
     userId:string;
     name:string;
