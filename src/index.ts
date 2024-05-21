@@ -19,9 +19,9 @@ cloudinary.config({
 const app = express()
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
-const allowedOrigins = process.env.FRONTEND_URL ? [process.env.FRONTEND_URL] : [];
+// const allowedOrigins = process.env.FRONTEND_URL ? [process.env.FRONTEND_URL] : [];
 app.use(cors({
-    origin:allowedOrigins,
+    origin:"https://hotel-booking-frontend-silk.vercel.app",
     credentials:true,
 }))
 app.use(cookieparser())
