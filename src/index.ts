@@ -19,9 +19,9 @@ cloudinary.config({
 const app = express()
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
-// const allowedOrigins = process.env.FRONTEND_URL ? [process.env.FRONTEND_URL] : [];
+const allowedOrigins = process.env.FRONTEND_URL ? [process.env.FRONTEND_URL] : [];
 app.use(cors({
-    origin:"https://hotel-booking-frontend-silk.vercel.app",
+    origin:allowedOrigins,
     credentials:true,
 }))
 app.use(cookieparser())
@@ -29,7 +29,7 @@ app.use("/api/auth",authRoutes);
 app.use('/api/users',userRoutes);
 app.use('/api/my-hotels',myHotelRoutes);
 app.use('/api/hotels',hotelRoutes)
-app.use(express.static(path.join(__dirname,"../../frontend/dist")))
+// app.use(express.static(path.join(__dirname,"../../frontend/dist")))
 
 app.listen(8000,()=>{
     console.log("server is listening at port 8000")
