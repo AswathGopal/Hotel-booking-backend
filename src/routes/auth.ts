@@ -36,7 +36,8 @@ async(req:Request,res:Response)=>{
 
        res.cookie("auth_token",token,{
         httpOnly: true,
-        secure: true, 
+        secure: true,
+        sameSite: None,   
       });
        res.status(200).json({userId:user._id});
     }catch(error){
