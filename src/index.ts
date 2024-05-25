@@ -20,6 +20,7 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 const allowedOrigins = process.env.FRONTEND_URL ? [process.env.FRONTEND_URL] : [];
+console.log("allowed origins",allowedOrigins);
 app.use(cors({
     origin:allowedOrigins,
     credentials:true,
